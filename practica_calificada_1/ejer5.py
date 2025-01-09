@@ -8,7 +8,6 @@ print("El precio de la entrada depende de tu edad y de las actividades que elija
 edad = int(input("¿Cuántos años tienes? "))
 
 # Determinar precio de la entrada
-    
 if edad < 5:
     print("Tu entrada es gratuita.")
     precio_entrada = 0
@@ -22,30 +21,38 @@ else:
     print("Tu entrada cuesta 15€.")
     precio_entrada = 15
 
-# Selección de actividades
+# Mostrar actividades disponibles
 print("\nTenemos varias actividades emocionantes para ti:")
 print("1. Tirolesa (10€ por persona)")
 print("2. Escalada en muro (7€ por persona)")
 print("3. Recorrido guiado por la naturaleza (5€ por persona)")
 print("4. Circuito de cuerdas (12€ por persona)")
-actividad = int(input("¿Qué actividad te gustaría realizar? (Escribe el número de la actividad): "))
 
-# Calcular el costo de la actividad seleccionada
-if actividad == 1:
-    print("El costo por realizar la tirolesa es 10€.")
-    costo_actividad = 10
-elif actividad == 2:
-    print("El costo por realizar escalada en el muro es 7€.")
-    costo_actividad = 7
-elif actividad == 3:
-    print("El costo por el recorrido guiado es 5€.")
-    costo_actividad = 5
-elif actividad == 4:
-    print("El costo por el circuito de cuerdas es 12€.")
-    costo_actividad = 12
-else:
-    print("Opción no válida. Por favor, elige una actividad válida.")
-    costo_actividad = 0
+# Preguntar cuántas actividades desea realizar
+cantidad_actividades = int(input("¿Cuántas actividades deseas realizar? "))
+
+# Inicializar costo total de actividades
+costo_actividades = 0
+
+# Usar ciclo for para registrar las actividades
+for i in range(cantidad_actividades):
+    actividad = int(input(f"Selecciona la actividad {i + 1} (Escribe el número de la actividad): "))
+    
+    # Determinar el costo de cada actividad
+    if actividad == 1:
+        print("Has elegido la tirolesa. Costo: 10€.")
+        costo_actividades += 10
+    elif actividad == 2:
+        print("Has elegido escalada en el muro. Costo: 7€.")
+        costo_actividades += 7
+    elif actividad == 3:
+        print("Has elegido el recorrido guiado. Costo: 5€.")
+        costo_actividades += 5
+    elif actividad == 4:
+        print("Has elegido el circuito de cuerdas. Costo: 12€.")
+        costo_actividades += 12
+    else:
+        print("Opción no válida. No se sumará ninguna actividad.")
 
 # Preguntar si tiene descuento especial
 descuento_especial = input("¿Tienes un cupón de descuento? (Sí/No): ").strip().lower()
@@ -58,13 +65,13 @@ else:
     descuento = 0
 
 # Calcular el costo total
-total = precio_entrada + costo_actividad
+total = precio_entrada + costo_actividades
 total_descuento = total - (total * descuento)
 
 # Mostrar resumen
 print("\nResumen de tu compra:")
 print(f"Entrada: {precio_entrada}€")
-print(f"Actividad seleccionada: {costo_actividad}€")
+print(f"Costo total de actividades: {costo_actividades}€")
 print(f"Descuento aplicado: {descuento * 100}%")
 print(f"Total a pagar: {total_descuento:.2f}€")
 
